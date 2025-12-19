@@ -1,0 +1,138 @@
+/* Pastel Colors */
+@define-color background rgba(255,255,255,0);  
+@define-color background-light rgba(245,245,245,0.6);
+@define-color foreground #4a4a4a;
+@define-color black #5a5a5a;
+@define-color red #FF6B6B;  
+@define-color green #7FA77F;  
+@define-color yellow #FFE6A7;
+@define-color blue #63A4FF;
+@define-color magenta #DDA0DD;
+@define-color cyan #63C0C0;  
+@define-color white #ffffff;
+@define-color orange #D9A733;  
+
+/* Module colors */
+@define-color workspaces-color @foreground;
+@define-color workspaces-focused-bg @green;
+@define-color workspaces-focused-fg @cyan;
+@define-color workspaces-urgent-bg @red;
+@define-color workspaces-urgent-fg @black;
+@define-color clock-color @blue;
+@define-color cpu-color @green;
+@define-color memory-color @magenta;
+@define-color temperature-color @yellow;
+@define-color temperature-critical-color @red;
+@define-color battery-color @cyan;
+@define-color battery-charging-color @green;
+@define-color battery-warning-color @yellow;
+@define-color battery-critical-color @red;
+@define-color network-color @blue;
+@define-color network-disconnected-color @red;
+@define-color wireplumber-color @orange;
+@define-color wireplumber-muted-color @red;
+@define-color backlight-color @yellow;
+@define-color disk-color @cyan;
+@define-color power-profiles-daemon-color @cyan;
+
+/* Global */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @background;
+    color: @foreground;
+}
+
+/* Módulos com padding */
+#mode,
+#custom-hardware-wrap,
+#custom-session-wrap,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#network,
+#pulseaudio,
+#wireplumber,
+#backlight,
+#disk,
+#power-profiles-daemon {
+    padding: 0 10px;
+    margin: 0 2px;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+}
+
+/* Tray compatível */
+#tray {
+    background-color: transparent;
+    padding: 0 6px;
+    margin: 0 2px;
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 10px;
+    background-color: transparent;
+    color: @workspaces-color;
+    margin: 0;
+}
+
+#workspaces button:hover {
+    background: @background-light;
+}
+
+#workspaces button.focused {
+    box-shadow: inset 0 -2px @workspaces-focused-fg;
+    color: @workspaces-focused-fg;
+    font-weight: 900;
+}
+
+#workspaces button.urgent {
+    background-color: @workspaces-urgent-bg;
+    color: @workspaces-urgent-fg;
+}
+
+/* Clock e hardware */
+#clock { color: @clock-color; border-bottom-color: @clock-color; }
+#cpu { color: @cpu-color; border-bottom-color: @cpu-color; }
+#memory { color: @memory-color; border-bottom-color: @memory-color; }
+#temperature { color: @temperature-color; border-bottom-color: @temperature-color; }
+#temperature.critical { color: @temperature-critical-color; border-bottom-color: @temperature-critical-color; }
+
+/* Sessão */
+#custom-session-wrap { color: @orange; border-bottom-color: @orange; }
+#custom-lock { color: @green; border-bottom-color: @green; }
+#custom-reboot { color: @orange; border-bottom-color: @orange; }
+#custom-power { color: @red; border-bottom-color: @red; }
+
+/* Bateria */
+#battery { color: @battery-color; border-bottom-color: @battery-color; }
+#battery.charging, #battery.plugged { color: @battery-charging-color; border-bottom-color: @battery-charging-color; }
+#battery.warning:not(.charging) { color: @battery-warning-color; border-bottom-color: @battery-warning-color; }
+#battery.critical:not(.charging) { color: @battery-critical-color; border-bottom-color: @battery-critical-color; }
+
+/* Network */
+#network { color: @network-color; border-bottom-color: @network-color; }
+#network.disconnected { color: @network-disconnected-color; border-bottom-color: @network-disconnected-color; }
+
+/* Audio */
+#pulseaudio { color: @wireplumber-color; border-bottom-color: @wireplumber-color; }
+#pulseaudio.muted { color: @wireplumber-muted-color; border-bottom-color: @wireplumber-muted-color; }
+#wireplumber { color: @wireplumber-color; border-bottom-color: @wireplumber-color; }
+#wireplumber.muted { color: @wireplumber-muted-color; border-bottom-color: @wireplumber-muted-color; }
+
+/* Backlight e disco */
+#backlight { color: @backlight-color; border-bottom-color: @backlight-color; }
+#disk { color: @disk-color; border-bottom-color: @disk-color; }
+
+/* Power profiles */
+#power-profiles-daemon { color: @power-profiles-daemon-color; border-bottom-color: @power-profiles-daemon-color; }
+
